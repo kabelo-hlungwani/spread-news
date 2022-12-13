@@ -40,9 +40,22 @@ app.post('/login',db.login)
 app.post('/addArticle/',db.addArticle)
 app.get('/currentUser/:id',db.currentUser)
 app.put('/updateprofile/:id',db.updateprofile)
+app.put('/updateStory/:id',db.updateStory)
+
+app.put('/restoreStory/:id',db.restoreStory)
+app.put('/archiveBooking/:id',db.archiveBooking)
+
+
+
+
 app.get('/adminstories/:id',db.adminstories)
 app.get('/deladminstories/:id',db.deladminstories)
 app.get('/authors',db.authors)
+app.get('/category',db.category)
 app.get('/countauthor',db.countauthor)
+app.get('/countarticle',db.countarticle)
+app.get('/viewstory/:id',db.viewstory)
+
+
 
 

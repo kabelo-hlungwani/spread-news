@@ -271,10 +271,158 @@ const countauthor = (req, res) => {
 
 //============================================================================
 
+
+//count authors
+const countarticle = (req, res) => {
+
+
+  {
+
+  
+  con.query('select count(*) as articles from article',[], function (error, results, fields) 
+  {
+  if(error){
+  res.send('data not found')
+  
+  }else{
+  res.send(results)
+  }
+  
+  })
+  
+  
+  
+  }}
+
+//============================================================================
+//category
+const category = (req, res) => {
+
+
+  {
+
+  
+  con.query('select * from category',[], function (error, results, fields) 
+  {
+  if(error){
+  res.send('data not found')
+  
+  }else{
+  res.send(results)
+  }
+  
+  })
+  
+  
+  
+  }}
+
+//============================================================================
+
+//viewstory
+const viewstory = (req, res) => {
+
+
+  {
+    const id=parseInt(req.params.id)
+  
+  con.query('select * from article where article_id=?',[id], function (error, results, fields) 
+  {
+  if(error){
+  res.send('data not found')
+  
+  }else{
+  res.send(results)
+  }
+  
+  })
+  
+  
+  
+  }}
+
+//============================================================================
+//update story
+const updateStory= (req, res) => {
+
+
+  const id=parseInt(req.params.id)
+  const {title, img_url,category,content} = req.body; 
+  var story={
+
+    "title":title,
+    "img_url":img_url,
+    "category":category,
+    "content":content
+ 
+}
+if(title && img_url && content && category){
+ con.query('UPDATE article SET ? WHERE article_id= ?',[story,id], function (error, results, fields) 
+  {
+       if(error){
+        res.send('data not sent')
+
+       }else{
+        res.send(' booking Updated succesfully!')
+       }
+
+  })
+}}
+//============================================================================
+//archive booking
+const archiveBooking = (req, res) => {
+
+
+{
+
+
+const id=parseInt(req.params.id)
+
+
+con.query('Update article SET archived=1 where article_id =?',[id], function (error, results, fields) 
+{
+if(error){
+res.send('data archived.')
+
+}else{
+res.send(results)
+}
+
+})
+
+
+
+}}
+//================================================================================================
+//restoreStory
+const restoreStory = (req, res) => {
+
+
+  {
+  
+  
+  const id=parseInt(req.params.id)
+  
+  
+  con.query('Update article SET archived=0 where article_id =?',[id], function (error, results, fields) 
+  {
+  if(error){
+  res.send('data restored.')
+  
+  }else{
+  res.send(results)
+  }
+  
+  })
+  
+  
+  
+  }}
+  //================================================================================================
 module.exports = {
  
   createUser,
-  login,addArticle,updateprofile,currentUser,adminstories,deladminstories,authors,countauthor
+  login,addArticle,updateprofile,currentUser,adminstories,deladminstories,authors,countauthor,countarticle,category,viewstory,updateStory,archiveBooking,restoreStory
 
 
   

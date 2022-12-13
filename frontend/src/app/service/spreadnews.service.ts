@@ -42,4 +42,20 @@ export class SpreadnewsService {
   countauthor(){
     return this.http.get(this.baseUrl+'/countauthor');
   }
+  countarticle(){
+    return this.http.get(this.baseUrl+'/countarticle');
+  }
+  category(){
+    return this.http.get(this.baseUrl+'/category');
+  }
+  viewstory (id: any){
+    return this.http.get(this.baseUrl+'/viewstory/'+id);
+  }
+  archiveBooking(id:any){
+    return this.http.put(`${this.baseUrl+'/archiveBooking'}/${id}`, {});
+  }
+
+  restoreStory(id:any){
+    return this.http.put(`${this.baseUrl+'/restoreStory'}/${id}`, {});
+  }
 }

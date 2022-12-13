@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { JwtService } from 'src/app/service/jwt.service';
 import { SpreadnewsService } from 'src/app/service/spreadnews.service';
 
@@ -10,7 +11,7 @@ import { SpreadnewsService } from 'src/app/service/spreadnews.service';
 })
 export class MyarticleComponent implements OnInit {
 
-  constructor(private route: Router,private spreadnews:SpreadnewsService,private jwtService : JwtService,private router:Router) { }
+  constructor(private route: Router,private spreadnews:SpreadnewsService,private jwtService : JwtService,private router:Router,private toast : NgToastService) { }
  
   info:any;
   inf=[];
@@ -39,6 +40,46 @@ export class MyarticleComponent implements OnInit {
      })
   
     }
+
+    edit(items:any)
+   {
+ 
+
+    this.router.navigate(['/editarticle']);
+    localStorage.setItem('article_id',items.article_id);
+ 
+ 
+ 
+   }
+   remove(items:any)
+   {
+   
+    var id=items.article_id;
+ 
+  
+    this.spreadnews.archiveBooking(id).subscribe(data => console.log(data))
+  
+
+
+    this.toast.success({detail:"Success",summary:'Article removed successfully', duration:2000})
+    setTimeout(()=> this.router.navigate(['/articlebin']),1600)
+
+
+    this.spreadnews.adminstories(this.info).subscribe(res=>{
+ 
+ 
+      this.info=res;
+      this.inf=this.info.data;
+      console.log(this.info);
+     
+      
+ 
+     })
+
+     
+
+
+} 
 
   }
 

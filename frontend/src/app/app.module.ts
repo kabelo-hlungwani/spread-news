@@ -29,6 +29,7 @@ import { MyarticleComponent } from './admin/myarticle/myarticle.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ArticlebinComponent } from './admin/articlebin/articlebin.component';
 import { AuthorsComponent } from './admin/authors/authors.component';
+import { EditarticleComponent } from './admin/editarticle/editarticle.component';
 
 
 @NgModule({
@@ -52,11 +53,12 @@ import { AuthorsComponent } from './admin/authors/authors.component';
     TopnavComponent,
     MyarticleComponent,
     ArticlebinComponent,
-    AuthorsComponent
+    AuthorsComponent,
+    EditarticleComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,ReactiveFormsModule,NgToastModule,CKEditorModule,CKEditorModule,NgxPaginationModule,
-    AppRoutingModule,FormsModule,RouterModule.forRoot([
+    AppRoutingModule,FormsModule,RouterModule.forRoot([{path:'myarticle', component:MyarticleComponent}
 
      
     ]),

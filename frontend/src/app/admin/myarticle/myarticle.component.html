@@ -42,7 +42,7 @@
                                 <th>#</th>
                                 <th><i class="fa fa-user-circle"></i>&nbsp;Author</th>
                                 <th><i class="fa fa-newspaper-o"></i>&nbsp;Title</th>
-                                <th><i class="fa fa-newspaper-o"></i>&nbsp;Category</th>
+                                <th><i class="fa fa-newspaper-o"></i>Category</th>
                                 <th><i class="fa fa-image"></i>&nbsp;Image</th>
                                 <th><i class="fa fa-newspaper-o"></i>&nbsp;Content</th>
                                 <th><i class="fa fa-cog"></i>&nbsp;Action</th>
@@ -57,7 +57,7 @@
                                 <td><img src="{{item.img_url}}" style="height: 54px;"></td>
                                 <td>{{item.content|slice:0:100}}</td>
                                 <td>
-                                    <div class="btn-group btn-group-sm shadow" role="group"><button class="btn btn-success" type="button" style="color: rgb(255,255,255);font-size: 12px;">Edit</button><button class="btn btn-danger btn-sm" type="button" style="font-size: 12px;">Remove</button></div>
+                                    <div class="btn-group btn-group-sm shadow" role="group"><button class="btn btn-success" type="button" style="color: rgb(255,255,255);font-size: 12px;" (click)= edit(item)>Edit</button><button class="btn btn-danger btn-sm" type="button" style="font-size: 12px;"(click)= remove(item) >Remove</button></div>
                                 </td>
                             </tr>
                             
@@ -66,7 +66,7 @@
                         </tbody>
                     </table>
 
-                    <p style="text-align: center;font-size: 18px;"><pagination-controls (pageChange)="q = $event" class=""></pagination-controls></p>
+                    <p style="text-align: center;font-size: 12px;"><pagination-controls (pageChange)="q = $event" class=""></pagination-controls></p>
                 </div>
             </div>
 

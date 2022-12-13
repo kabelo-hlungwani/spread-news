@@ -4,6 +4,7 @@ import { AddpostadminComponent } from './admin/addpostadmin/addpostadmin.compone
 import { ArticlebinComponent } from './admin/articlebin/articlebin.component';
 import { AuthorsComponent } from './admin/authors/authors.component';
 import { DashboardadminComponent } from './admin/dashboardadmin/dashboardadmin.component';
+import { EditarticleComponent } from './admin/editarticle/editarticle.component';
 import { MyarticleComponent } from './admin/myarticle/myarticle.component';
 import { ProfileadminComponent } from './admin/profileadmin/profileadmin.component';
 import { AuthordashboardComponent } from './author/authordashboard/authordashboard.component';
@@ -23,7 +24,8 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{ path: 'navb
 { path: 'addpostadmin', component: AddpostadminComponent,canActivate:[AuthService] },
 { path: 'myarticle', component: MyarticleComponent,canActivate:[AuthService] },
 { path: 'articlebin', component: ArticlebinComponent,canActivate:[AuthService] },
-{ path: 'authors', component: AuthorsComponent,canActivate:[AuthService] }
+{ path: 'authors', component: AuthorsComponent,canActivate:[AuthService] },
+{ path: 'editarticle', component: EditarticleComponent,canActivate:[AuthService] }
 
 ];
 

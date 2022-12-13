@@ -10,7 +10,7 @@ import { SpreadnewsService } from 'src/app/service/spreadnews.service';
 })
 export class DashboardadminComponent implements OnInit {
   users:any;
-
+  articles:any;
 
   constructor(private route: Router,private service:SpreadnewsService,private jwtService : JwtService) { }
   user = {
@@ -32,9 +32,9 @@ export class DashboardadminComponent implements OnInit {
    
       })
       //count pending booking
-      this.service.countauthor().subscribe((data)=>{
-        this.users= data;
-        console.log(this.users)
+      this.service.countarticle().subscribe((data)=>{
+        this.articles= data;
+        console.log(this.articles)
      
         })
 
