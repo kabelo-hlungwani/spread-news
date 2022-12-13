@@ -25,4 +25,21 @@ export class SpreadnewsService {
   updateprofile(id:any,data: any){
     return this.http.put(`${this.baseUrl+'/updateprofile'}/${id}`, {data});
   }
+
+  addArticle(data:any){
+    return this.http.post(this.baseUrl+'/addArticle/', data);
+  }
+  
+  adminstories(id: any){
+    return this.http.get(this.baseUrl+'/adminstories/'+id);
+  }
+  deladminstories(id: any){
+    return this.http.get(this.baseUrl+'/deladminstories/'+id);
+  }
+  authors(){
+    return this.http.get(this.baseUrl+'/authors');
+  }
+  countauthor(){
+    return this.http.get(this.baseUrl+'/countauthor');
+  }
 }

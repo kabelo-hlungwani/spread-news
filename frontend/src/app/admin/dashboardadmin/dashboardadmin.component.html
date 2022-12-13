@@ -41,9 +41,9 @@
                             <div class="card shadow border-start-success py-2" style="background: #FF4C13;">
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
-                                        <div class="col me-2">
+                                        <div class="col me-2" *ngFor="let u of users">
                                             <div class="text-uppercase text-success fw-bold text-xs mb-1"><span style="font-size: 15px;color: rgb(255,255,255);">AUTHORS</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span style="color: rgb(255,255,255);">0</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span style="color: rgb(255,255,255);">{{u.users}}</span></div>
                                         </div>
                                     </div>
                                 </div>

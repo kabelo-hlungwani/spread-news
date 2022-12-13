@@ -1,0 +1,91 @@
+
+
+
+
+
+
+  
+
+
+
+
+
+<div id="wrapper">
+    <!------side menu-------->
+
+<app-sidemenuadmin></app-sidemenuadmin>
+
+
+
+    <!---------------------->
+      <div class="d-flex flex-column" id="content-wrapper">
+          <div id="content">
+          <!---------top nav-->
+
+            <!---------top nav-->
+            <app-topnav></app-topnav>
+            <!------------------>
+
+
+          <!------------------>
+
+
+
+
+          <section class="register-photo" style="background: rgb(255,255,255);">
+
+
+            <div class="container">
+                <h1 style="font-size: 17px;">Authors</h1>
+                <div class="table-responsive" style="border-top-left-radius: 4px;border-top-right-radius: 4px;">
+                    <table class="table">
+                        <thead class="table-dark">
+                            <tr style="font-size: 13px;">
+                                <th>#</th>
+                                <th><i class="fa fa-user-circle"></i>&nbsp;Author</th>
+                                <th><i class="fa fa-hourglass-start"></i>&nbsp;Status</th>
+                                <th><i class="fa fa-cog"></i>&nbsp;Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="font-size: 12px;" *ngFor="let item of info| paginate: { itemsPerPage: 6,currentPage: q };let i=index;">
+                                <td>{{i+1}}</td>
+                                <td>{{item.firstname}} {{item.lastname}}</td>
+                                <td ><span *ngIf="item.acc_status == 0" class="text-success" style="font-size: 11px;background: #e3e3e3;border-radius: 15px;">&nbsp;<i class="fa fa-circle"></i>&nbsp;Activated&nbsp;</span>
+                                    <span *ngIf="item.acc_status == 1" class="text-danger" style="font-size: 11px;background: #e3e3e3;border-radius: 15px;">&nbsp;<i class="fa fa-circle"></i>Suspended&nbsp;&nbsp;</span>
+                                </td>
+                                <td>
+                                    <div class="btn-group btn-group-sm shadow" role="group"><button class="btn btn-success" type="button" style="color: rgb(255,255,255);font-size: 12px;">Active</button><button class="btn btn-danger btn-sm" type="button" style="font-size: 12px;">Suspend</button></div>
+                                </td>
+                            </tr>
+                         
+                            
+                            
+                        
+                        </tbody>
+                    </table>
+                    <p style="text-align: center;font-size: 12px;"><pagination-controls (pageChange)="q = $event" class=""></pagination-controls></p>
+                </div>
+            </div>
+           
+
+            <!-------footer-->
+            <app-footeradmin></app-footeradmin>
+            <!--------------->
+        </section>
+
+            
+
+
+
+
+
+
+          </div>
+
+      </div>
+  </div>
+  
+
+
+

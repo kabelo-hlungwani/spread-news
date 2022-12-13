@@ -24,6 +24,12 @@ import { ViewauthoradminComponent } from './admin/viewauthoradmin/viewauthoradmi
 import { FooteradminComponent } from './admin/footeradmin/footeradmin.component';
 import { SidemenuadminComponent } from './admin/sidemenuadmin/sidemenuadmin.component';
 import { TopnavComponent } from './admin/topnav/topnav.component';
+import { CKEditorModule } from 'ckeditor4-angular';
+import { MyarticleComponent } from './admin/myarticle/myarticle.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ArticlebinComponent } from './admin/articlebin/articlebin.component';
+import { AuthorsComponent } from './admin/authors/authors.component';
+
 
 @NgModule({
   declarations: [
@@ -43,10 +49,13 @@ import { TopnavComponent } from './admin/topnav/topnav.component';
     ViewauthoradminComponent,
     FooteradminComponent,
     SidemenuadminComponent,
-    TopnavComponent
+    TopnavComponent,
+    MyarticleComponent,
+    ArticlebinComponent,
+    AuthorsComponent
   ],
   imports: [
-    BrowserModule,HttpClientModule,ReactiveFormsModule,NgToastModule,
+    BrowserModule,HttpClientModule,ReactiveFormsModule,NgToastModule,CKEditorModule,CKEditorModule,NgxPaginationModule,
     AppRoutingModule,FormsModule,RouterModule.forRoot([
 
      

@@ -9,6 +9,8 @@ import { SpreadnewsService } from 'src/app/service/spreadnews.service';
   styleUrls: ['./dashboardadmin.component.scss']
 })
 export class DashboardadminComponent implements OnInit {
+  users:any;
+
 
   constructor(private route: Router,private service:SpreadnewsService,private jwtService : JwtService) { }
   user = {
@@ -23,6 +25,18 @@ export class DashboardadminComponent implements OnInit {
     this.user= this.jwtService.getDetails(localStorage.getItem('token')).data[0];
 
     let id=this.user.user_id
+
+    this.service.countauthor().subscribe((data)=>{
+      this.users= data;
+      console.log(this.users)
+   
+      })
+      //count pending booking
+      this.service.countauthor().subscribe((data)=>{
+        this.users= data;
+        console.log(this.users)
+     
+        })
 
   }
 

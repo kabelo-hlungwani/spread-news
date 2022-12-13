@@ -1,19 +1,13 @@
 
 
-
-
-  
-
-
-
-
-
     <div id="wrapper">
         <!------side menu-------->
   
-  <app-sidemenuadmin></app-sidemenuadmin>
-  
-  
+
+  <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: #FF4C13;">
+     <app-sidemenuadmin></app-sidemenuadmin>
+   
+</nav>
   
         <!---------------------->
           <div class="d-flex flex-column" id="content-wrapper">
@@ -24,33 +18,37 @@
                 <app-topnav></app-topnav>
                 <!------------------>
 
-
-              <!------------------>
-  
-  
-  
-  
-
               <section class="register-photo" style="background: rgb(255,255,255);">
                 <div class="shadow-none form-container">
-                    <form method="post">
+                    <form   [formGroup]="form" #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)"  method="post">
                         <h2 class="text-center">Add Article</h2>
                         <div class="mb-3">
-                            <div class="input-group"><span class="input-group-text" style="border-style: none;background: rgb(246,249,252);border-top-left-radius: 5px;border-top-right-radius: 5px;"><i class="fa fa-newspaper-o" style="color: rgb(255,75,19);font-size: 20px;"></i></span><input class="form-control" type="text" style="border-style: none;border-bottom-right-radius: 5px;border-top-right-radius: 5px;" placeholder="Title"></div>
+                            <div class="input-group"><span class="input-group-text" style="border-style: none;background: rgb(246,249,252);border-top-left-radius: 5px;border-top-right-radius: 5px;"><i class="fa fa-newspaper-o" style="color: rgb(255,75,19);font-size: 20px;"></i></span>
+                                
+                                <input class="form-control" type="text" formControlName="title" name="title" style="border-style: none;border-bottom-right-radius: 5px;border-top-right-radius: 5px;" placeholder="Title"></div>
                         </div>
                         <div class="mb-3">
-                            <div class="input-group"><span class="input-group-text" style="border-style: none;background: rgb(246,249,252);border-top-left-radius: 5px;border-top-right-radius: 5px;"><i class="fa fa-chain" style="color: rgb(255,75,19);font-size: 20px;"></i></span><select class="form-select" style="border-style: none;background: rgb(246,249,252);">
-                                    <optgroup label="This is a group">
-                                        <option value="12" selected="">This is item 1</option>
+                            <div class="input-group"><span class="input-group-text" style="border-style: none;background: rgb(246,249,252);border-top-left-radius: 5px;border-top-right-radius: 5px;"><i class="fa fa-chain" style="color: rgb(255,75,19);font-size: 20px;"></i></span>
+                                <select class="form-select" formControlName="category" name="category" style="border-style: none;background: rgb(246,249,252);">
+                                    
+                                        <option value="" selected="">This is item 1</option>
                                         <option value="13">This is item 2</option>
                                         <option value="14">This is item 3</option>
-                                    </optgroup>
-                                </select></div>
+                                  
+                                </select>
+                            
+                            </div>
                         </div>
                         <div class="mb-3">
-                            <div class="input-group"><span class="input-group-text" style="border-style: none;background: rgb(246,249,252);border-top-left-radius: 5px;border-top-right-radius: 5px;"><i class="fa fa-paperclip" style="color: rgb(255,75,19);font-size: 20px;"></i></span><input class="form-control" type="text" style="border-style: none;border-bottom-right-radius: 5px;border-top-right-radius: 5px;" placeholder="Image Url"></div>
+                            <div class="input-group"><span class="input-group-text" style="border-style: none;background: rgb(246,249,252);border-top-left-radius: 5px;border-top-right-radius: 5px;"><i class="fa fa-paperclip" style="color: rgb(255,75,19);font-size: 20px;"></i></span>
+                                <input class="form-control" formControlName="img_url" name="img_url" type="text" style="border-style: none;border-bottom-right-radius: 5px;border-top-right-radius: 5px;" placeholder="Image Url"></div>
                         </div>
-                        <div class="mb-3"><textarea class="form-control" id="editor" placeholder="Content" rows="14" cols="3" style="border-radius: 5px;height: 60px;" wrap="soft" spellcheck="true"></textarea></div>
+                        
+
+                        <div class="mb-3">
+
+                            <ckeditor formControlName="content" name="content"  style="border-style: none;background: rgb(246,249,252);border-top-left-radius: 5px;border-top-right-radius: 5px;"></ckeditor>
+                        </div>
                         <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: rgb(255,75,19);">Update</button></div>
                     </form>
                 </div>
