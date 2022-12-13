@@ -1,0 +1,20 @@
+<nav class="navbar navbar-light navbar-expand-md fixed-top shadow navigation-clean">
+    <div class="container"><a class="navbar-brand" href="#">Spreadnews<span class="text-danger" style="color: var(--bs-purple);">.com</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1" style="border-style: none;"><span class="visually-hidden">Toggle navigation</span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-menu" style="color: var(--bs-danger);">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <line x1="4" y1="8" x2="20" y2="8"></line>
+                <line x1="4" y1="16" x2="20" y2="16"></line>
+            </svg></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" routerLink='' >News</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink=''>Politics</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink=''>Government</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink=''>Business</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink=''>Sport</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink=''>Weather</a></li>
+            </ul>
+            <div class="btn-group" role="group"><a class="btn btn-danger" role="button" routerLink='login'>Sign In</a><a class="btn btn-primary" role="button" routerLink='register'>Sign Up&nbsp;</a></div>
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>

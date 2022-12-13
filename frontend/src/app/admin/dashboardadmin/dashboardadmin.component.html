@@ -1,0 +1,58 @@
+
+<button class="btn btn-primary" (click)="onClick()">logout</button>
+<body id="page-top">
+    <div id="wrapper">
+      <!------side menu-------->
+
+<app-sidemenuadmin></app-sidemenuadmin>
+
+
+
+      <!---------------------->
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand shadow mb-4 topbar static-top" style="background: #ffffff;">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars" style="color: rgb(255,75,19);"></i></button>
+                        <ul class="navbar-nav flex-nowrap ms-auto"></ul>
+                        <h1 style="font-size: 13px;"><i class="fa fa-user-circle" style="color: rgb(255,75,19);"></i>&nbsp;{{user.firstname}} {{user.lastname}}</h1>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Dashboard</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-start-primary py-2" style="background: #FF4C13;">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="font-size: 16px;color: rgb(255,255,255);">ARTICLES</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span style="color: rgb(255,255,255);">0</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-start-success py-2" style="background: #FF4C13;">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span style="font-size: 15px;color: rgb(255,255,255);">AUTHORS</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span style="color: rgb(255,255,255);">0</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-------footer-->
+
+            <!--------------->
+        </div>
+    </div>
+    
+</body>
