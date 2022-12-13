@@ -1,12 +1,15 @@
+<app-navbar></app-navbar>
 <section class="register-photo" style="margin-top: 50px;background: rgb(255,255,255);">
     <div class="form-container">
-        <div class="image-holder"></div>
+        <div class="image-holder" style="background: url(&quot;assets/img/login.jpg&quot;) center / cover;"></div>
         <form  [formGroup]="form" #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)"  method="post">
             <h2 class="text-center" style="color: var(--bs-danger);"><strong>Sign In to</strong>&nbsp;account.</h2>
             <div class="mb-3">
-                <div class="input-group"><span class="input-group-text" style="background: var(--bs-danger);"><i class="material-icons" style="color: var(--bs-white);font-size: 20px;">email</i></span>
+                <div class="input-group">
+                <span class="input-group-text" style="background: rgb(246,249,252);border-style: none;"><i class="material-icons" style="color: var(--bs-danger);font-size: 20px;">email</i></span>
                     
-                    <input class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" type="text"  id="email"  name="email" placeholder="Email" style="border-top-right-radius: 4px;border-bottom-right-radius: 4px;">
+                    <input class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" type="text"  id="email"  name="email" placeholder="Email" style="border-top-right-radius: 4px;border-bottom-right-radius: 4px;border-style: none;">
+          
                  <!----------->
 
             <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
@@ -19,9 +22,10 @@
                 </div>
                 
             <div class="mb-3">
-                <div class="input-group"><span class="input-group-text" style="background: var(--bs-danger);"><i class="material-icons" style="color: var(--bs-white);font-size: 20px;">lock_outline</i></span>
-                    <input formControlName="password"  [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" type="password" id="password"  name="password" class="form-control" placeholder="Password" style="border-bottom-right-radius: 4px;border-top-right-radius: 4px;">
-                
+                  <div class="input-group">
+                    <span class="input-group-text" style="background: rgb(246,249,252);border-style: none;"><i class="material-icons" style="color: var(--bs-danger);font-size: 20px;">lock_outline</i></span>
+                    
+                    <input  formControlName="password"  [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" type="password" id="password"  name="password" class="form-control" placeholder="Password" style="border-bottom-right-radius: 4px;border-top-right-radius: 4px;border-style: none;">
                           <!----->
              <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
                 <div *ngIf="f['password'].errors['required']">Password is required</div>
@@ -39,7 +43,7 @@
             
                 </div>
             <div class="mb-3"></div>
-            <div class="mb-3"><button class="btn btn-danger d-block w-100" type="submit">Sign In</button></div><a class="already" routerLink='/register'>You don't have an account? Sign Up here.</a><a class="already" href="#">Forgot password?.</a>
+            <div class="mb-3"><button class="btn btn-danger d-block w-100"  type="submit">Sign In</button></div><a class="already" routerLink='/register'>You don't have an account? Sign Up here.</a><a class="already" href="#">Forgot password?.</a>
         </form>
     </div>
 </section>

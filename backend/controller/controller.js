@@ -6,7 +6,7 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "spreadnewsdb"
+  database: "bnbdb"
 });
 
 
@@ -19,7 +19,7 @@ const createUser = (req, res) => {
    const hashed_password = md5(password.toString())
   
 
-  if(firstname && lastname && email && password ){
+  if(firstname && lastname && email && password){
 
 
 
@@ -91,7 +91,29 @@ const login = (req, res) => {
 
 
 }
+//===============================
 
+const contacts = (req, res) => {
+    
+    
+  {
+       
+          
+         con.query('select  * from contact',[], function (error, results, fields) 
+          {
+               if(error){
+                res.send('data not found')
+  
+               }else{
+                res.send(results)
+               }
+  
+          })
+  
+  
+          
+        }}
+//================================
 
 
 //mesage fuction 
@@ -165,6 +187,28 @@ const message = (req, res) => {
               
                       
                     }}
+
+                    //get user by id
+                    const currentUser = (req, res) => {
+    
+    
+                      {
+                      const id=parseInt(req.params.id)
+                              
+                             con.query('select * from user where user_id= ?',[id], function (error, results, fields) 
+                              {
+                                   if(error){
+                                    res.send('data not found')
+                      
+                                   }else{
+                                    res.send(results)
+                                   }
+                      
+                              })
+                      
+                      
+                              
+                            }}
                   //archive booking
 
 
@@ -216,7 +260,33 @@ const message = (req, res) => {
                               
                             }}
 
+//============================================================================
+//read message
 
+const readmessage = (req, res) => {
+    
+                  
+  {
+
+
+  const id=parseInt(req.params.id)
+  const stat=1;
+          
+         con.query('UPDATE booking SET mark_read =? where booking_id =?',[stat,id], function (error, results, fields) 
+          {
+               if(error){
+                res.send('data approved.')
+  
+               }else{
+                res.send(results)
+               }
+  
+          })
+  
+  
+          
+        }}
+//============================================================================
 
                     //make booking 
 
@@ -227,9 +297,8 @@ const message = (req, res) => {
                     
                             var bookvalue={
                     
-                             
-                              "room_id":room_id,
                               "user_id":user_id,
+                              "room_id":room_id,
                               "checkin":checkin, 
                               "checkout":checkout
                             }
@@ -310,7 +379,7 @@ const message = (req, res) => {
               {
               const id=parseInt(req.params.id)
                       
-                     con.query('select * from booking  where user_id= ?',[id], function (error, results, fields) 
+                     con.query('select * from booking,room  where booking.room_id=room.room_id and booking.archive=0 and user_id= ?',[id], function (error, results, fields) 
                       {
                            if(error){
                             res.send('data not found')
@@ -358,6 +427,7 @@ const message = (req, res) => {
                   
                  
                 }
+                if(checkin && checkout){
                  con.query('UPDATE booking SET ? WHERE booking_id= ?',[booking,id], function (error, results, fields) 
                   {
                        if(error){
@@ -368,69 +438,100 @@ const message = (req, res) => {
                        }
           
                   })
-                }
-
+                }}
+//========================================================================================
 //delete room
 
 const removeroom = (req, res) => {
-    
-    
-  {
-  const id=parseInt(req.params.id)
-          
-         con.query('DELETE from room where room_id= ?',[id], function (error, results, fields) 
-          {
-               if(error){
-                res.send('not deleted')
-  
-               }else{
-                res.send(results)
-               }
-  
-          })
-  
-  
-          
-        }}
 
-        //add room
-        const addroom = (req, res) => {
-    
-          const {title,description,img_url,price} = req.body; 
-          if(title && description && img_url && price){
 
-            var roominfo={
-    
-              "title":title,
-              "price":price,
-              "description":description,
-              "img_url":img_url
-              
-             }
-           con.query('INSERT INTO room SET ?',[roominfo], function (error, results, fields) 
+{
+const id=parseInt(req.params.id)
+
+con.query('DELETE from room where room_id= ?',[id], function (error, results, fields) 
+{
+if(error){
+res.send('not deleted')
+
+}else{
+res.send(results)
+}
+
+})
+
+
+
+}}
+//========================================================================================
+//add room
+const addroom = (req, res) => {
+
+const {title,description,img_url1,img_url2,img_url3,price} = req.body; 
+if(title && description && img_url1 && img_url2 && img_url3 && price){
+
+var roominfo={
+
+"title":title,
+"price":price,
+"description":description,
+"img_url1":img_url1,
+"img_url2":img_url2,
+"img_url3":img_url3
+
+}
+con.query('INSERT INTO room SET ?',[roominfo], function (error, results, fields) 
+{
+if(error){
+res.send('data not sent')
+
+}else{
+res.send(results)
+}
+})
+
+
+
+}}
+//==========================================================================================
+          //update profile
+
+          const updateprofile= (req, res) => {
+
+
+            const id=parseInt(req.params.id)
+            const {firstname,lastname,email} = req.body; 
+            var profilevalue={
+
+             "firstname":firstname,
+             "lastname":lastname,
+             "email":email
+        
+           
+          }
+           con.query('UPDATE User SET ? WHERE user_id= ?',[profilevalue,id], function (error, results, fields) 
             {
-              if(error){
-                res.send('data not sent')
-  
-               }else{
-                res.send(results)
-               }
+                 if(error){
+                  res.send('data not sent')
+    
+                 }else{
+                  res.send(' Profile Updated succesfully!')
+                 }
+    
             })
-    
-    
-            
-          }}
-          //update room
+          }
+          //
           const updateroom= (req, res) => {
 
 
             const id=parseInt(req.params.id)
-            const {title,description,img_url,price} = req.body; 
+            const {title,description,img_url1,img_url2,img_url3,price} = req.body; 
             var roomvalue={
 
              "title":title,
              "description":description,
-             "img_url":img_url,
+             "img_url1":img_url1,
+             "img_url2":img_url2,
+             "img_url3":img_url3,
               "price":price
            
           }
@@ -473,7 +574,7 @@ const removeroom = (req, res) => {
         {
               var stat=0;
                 
-               con.query('select count(*) as countcustomer from user where user_id > 3',[], function (error, results, fields) 
+               con.query('select count(*) as countcustomer from user where user_id >= 3',[], function (error, results, fields) 
                 {
                      if(error){
                       res.send('data not found')
@@ -508,6 +609,163 @@ const removeroom = (req, res) => {
         
                 
               }} 
+//============================================================================
+//count my booking
+
+
+const countmybooking = (req, res) => {
+  const id=parseInt(req.params.id)
+    
+  {
+      
+          
+         con.query('select count(*) as countmybooking from booking where archive=0 and  user_id = ?',[id], function (error, results, fields) 
+          {
+               if(error){
+                res.send('data not found')
+  
+               }else{
+                res.send(results)
+               }
+  
+          })
+  
+  
+          
+        }} 
+        //count pending bookings
+        const countpending = (req, res) => {
+          const id=parseInt(req.params.id)
+            
+          {
+              
+                  
+                 con.query('select count(*) as countpending from booking where approved=0 and archive=0 and user_id = ?',[id], function (error, results, fields) 
+                  {
+                       if(error){
+                        res.send('data not found')
+          
+                       }else{
+                        res.send(results)
+                       }
+          
+                  })
+          
+          
+                  
+                }} 
+                   //count history bookings
+        const counthistory = (req, res) => {
+          const id=parseInt(req.params.id)
+            
+          {
+              
+                  
+                 con.query('select count(*) as counthistory from booking where approved=1 and user_id = ?',[id], function (error, results, fields) 
+                  {
+                       if(error){
+                        res.send('data not found')
+          
+                       }else{
+                        res.send(results)
+                       }
+          
+                  })
+          
+          
+                  
+                }} 
+
+                const countcancelbooking = (req, res) => {
+                  const id=parseInt(req.params.id)
+                    
+                  {
+                      
+                          
+                         con.query('select count(*) as countcancelbooking from booking where approved=2 and user_id = ?',[id], function (error, results, fields) 
+                          {
+                               if(error){
+                                res.send('data not found')
+                  
+                               }else{
+                                res.send(results)
+                               }
+                  
+                          })
+                  
+                  
+                          
+                        }} 
+                
+//============================================================================
+
+const notification = (req, res) => {
+
+const id=parseInt(req.params.id);
+{
+
+
+con.query('SELECT COUNT(*) as countn from booking WHERE approved > 0 AND mark_read=0 AND archive=0 AND user_id=?',[id], function (error, results, fields) 
+{
+if(error){
+res.send('data not found')
+
+}else{
+res.send(results)
+}
+
+})
+
+
+
+}} 
+//============================================================================
+//count contacts   contactscount
+
+const contactscount = (req, res) => {
+
+  const id=parseInt(req.params.id);
+  {
+  
+  
+  con.query('SELECT COUNT(*) as countc from contact',[], function (error, results, fields) 
+  {
+  if(error){
+  res.send('data not found')
+  
+  }else{
+  res.send(results)
+  }
+  
+  })
+  
+  
+  
+  }} 
+
+//============================================================================
+
+const usernotification = (req, res) => {
+
+
+{
+const id=parseInt(req.params.id)
+
+con.query('SELECT * from booking,room WHERE booking.room_id=room.room_id AND  approved > 0 AND  archive=0 AND user_id=?',[id], function (error, results, fields) 
+{
+if(error){
+res.send('data not found')
+
+}else{
+res.send(results)
+}
+
+})
+
+
+
+}}
+//============================================================================
                     //cancel booking
                     const cancelBooking = (req, res) => {
                   
@@ -545,6 +803,7 @@ module.exports = {
   makeBooking,
   archiveBooking,
   viewbook,
-  updateDate,removeroom,addroom,updateroom,allbooks,countbooking,countcustomer,countrooms,approvebooking,cancelBooking
+  updateDate,removeroom,addroom,updateroom,allbooks,countbooking,countcustomer,countrooms,approvebooking,cancelBooking,updateprofile,currentUser,
+  countmybooking,countpending,counthistory,countcancelbooking,notification,usernotification,readmessage,contacts,contactscount
   
 }    

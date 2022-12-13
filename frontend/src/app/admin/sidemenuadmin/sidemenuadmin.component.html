@@ -5,14 +5,14 @@
         <hr class="sidebar-divider my-0">
    
         <ul class="navbar-nav text-light" id="accordionSidebar">
-            <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span style="font-weight: bold;">Dashboard</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span><strong>Profile</strong></span></a></li>
-            <li class="nav-item"><a class="nav-link" href="addstory.html"><i class="fa fa-newspaper-o"></i><span><strong>Add Articles</strong></span></a></li>
-            <li class="nav-item"><a class="nav-link" href="ownarticles.html"><i class="fa fa-newspaper-o"></i><span><strong>Own Articles</strong></span></a></li>
-            <li class="nav-item"><a class="nav-link" href="authorarticles.html"><i class="fa fa-newspaper-o"></i><span><strong>View Articles</strong></span></a></li>
-            <li class="nav-item"><a class="nav-link" href="authors.html"><i class="fas fa-user"></i><span><strong>View Authors</strong></span></a></li>
-            <li class="nav-item"><a class="nav-link" href="deletedarticles.html"><i class="fa fa-trash-o"></i><span><strong>&nbsp;Deleted Articles</strong><br></span></a></li>
-            <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fa fa-power-off"></i><span><strong>LogOut</strong></span></a></li>
+            <li class="nav-item"><a class="nav-link" routerLink='/dashboardadmin'><i class="fas fa-tachometer-alt"></i><span style="font-weight: bold;">Dashboard</span></a></li>
+            <li class="nav-item"><a class="nav-link" routerLink='/profileadmin'><i class="fas fa-user"></i><span><strong>Profile</strong></span></a></li>
+            <li class="nav-item"><a class="nav-link" routerLink='/addpostadmin'><i class="fa fa-newspaper-o"></i><span><strong>Add Articles</strong></span></a></li>
+            <li class="nav-item"><a class="nav-link" routerLink='/'><i class="fa fa-newspaper-o"></i><span><strong>Own Articles</strong></span></a></li>
+            <li class="nav-item"><a class="nav-link"routerLink='/'><i class="fa fa-newspaper-o"></i><span><strong>View Articles</strong></span></a></li>
+            <li class="nav-item"><a class="nav-link" routerLink='/'><i class="fas fa-user"></i><span><strong>View Authors</strong></span></a></li>
+            <li class="nav-item"><a class="nav-link" routerLink='/'><i class="fa fa-trash-o"></i><span><strong>&nbsp;Deleted Articles</strong><br></span></a></li>
+            <li class="nav-item"><a class="nav-link" (click)="onClick()" ><i class="fa fa-power-off"></i><span><strong>LogOut</strong></span></a></li>
         </ul>
        
 

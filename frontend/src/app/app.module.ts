@@ -23,6 +23,7 @@ import { AddpostadminComponent } from './admin/addpostadmin/addpostadmin.compone
 import { ViewauthoradminComponent } from './admin/viewauthoradmin/viewauthoradmin.component';
 import { FooteradminComponent } from './admin/footeradmin/footeradmin.component';
 import { SidemenuadminComponent } from './admin/sidemenuadmin/sidemenuadmin.component';
+import { TopnavComponent } from './admin/topnav/topnav.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SidemenuadminComponent } from './admin/sidemenuadmin/sidemenuadmin.comp
     AddpostadminComponent,
     ViewauthoradminComponent,
     FooteradminComponent,
-    SidemenuadminComponent
+    SidemenuadminComponent,
+    TopnavComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,ReactiveFormsModule,NgToastModule,

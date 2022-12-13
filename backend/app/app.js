@@ -51,11 +51,28 @@ app.get('/viewbook/:id',db.viewbook)
 app.get('/countbooking',db.countbooking)
 app.get('/countcustomer',db.countcustomer)
 app.get('/countrooms',db.countrooms)
+app.get('/currentUser/:id',db.currentUser)
+app.get('/contacts',db.contacts)
+//count admin
+app.get('/book/:id',db.currentbook)
+app.get('/viewbook/:id',db.viewbook)
+app.get('/books/:id',db.currentbook)
+app.get('/contactscount',db.contactscount)
+//count user
+app.get('/countmybooking/:id',db.countmybooking)
+app.get('/countpending/:id',db.countpending)
+app.get('/counthistory/:id',db.counthistory)
+app.get('/countcancelbooking/:id',db.countcancelbooking)
 //put
 app.put('/approvebooking/:id',db.approvebooking)
+app.put('/readmessage/:id',db.readmessage)
 app.put('/updateDate/:id',db.updateDate)
 app.put('/updateroom/:id',db.updateroom)
+app.put('/updateprofile/:id',db.updateprofile)
 app.put('/archiveBooking/:id',db.archiveBooking)
 app.put('/cancelBooking/:id',db.cancelBooking)
 //delete
 app.delete('/removeroom/:id',db.removeroom)
+//notification
+app.get('/notification/:id',db.notification)
+app.get('/usernotification/:id',db.usernotification)

@@ -87,6 +87,7 @@ export class LoginComponent implements OnInit {
       console.log(results);
  
        localStorage.setItem('token',results.token);
+
      if(results.token!=null){
  
      this.user= this.jwtService.getDetails(localStorage.getItem('token')).data[0];

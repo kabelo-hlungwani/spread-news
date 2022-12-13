@@ -1,1 +1,72 @@
-<p>profileadmin works!</p>
+
+
+  
+
+
+
+
+
+    <div id="wrapper">
+        <!------side menu-------->
+  
+  <app-sidemenuadmin></app-sidemenuadmin>
+  
+  
+  
+        <!---------------------->
+          <div class="d-flex flex-column" id="content-wrapper">
+              <div id="content">
+              <!---------top nav-->
+
+                <!---------top nav-->
+                <app-topnav></app-topnav>
+                <!------------------>
+
+
+              <!------------------>
+  
+  
+  
+  
+              <section class="register-photo" style="background: rgb(255,255,255);" *ngFor="let e of person;">
+                <div class="shadow-none form-container">
+                    <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" method="post">
+                        <h2 class="text-center">Profile update</h2>
+                        <div class="mb-3">
+                            <div class="input-group"><span class="input-group-text" style="border-style: none;background: rgb(246,249,252);border-top-left-radius: 5px;border-top-right-radius: 5px;"><i class="fa fa-user" style="color: rgb(255,75,19);font-size: 20px;"></i></span>
+                                <input class="form-control" [(ngModel)]="e.firstname" type="text"   id="firstname" ngModel name="firstname" type="text" style="border-style: none;border-bottom-right-radius: 5px;border-top-right-radius: 5px;" placeholder="Firstname"></div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group"><span class="input-group-text" style="border-style: none;background: rgb(246,249,252);border-top-left-radius: 5px;border-top-right-radius: 5px;"><i class="fa fa-user" style="color: rgb(255,75,19);font-size: 20px;"></i></span>
+                                <input class="form-control" type="text" ngModel name="lastname" [(ngModel)]="e.lastname"style="border-style: none;border-bottom-right-radius: 5px;border-top-right-radius: 5px;" placeholder="Lastname"></div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group"><span class="input-group-text" style="border-style: none;background: rgb(246,249,252);border-top-left-radius: 5px;border-top-right-radius: 5px;"><i class="fa fa-envelope" style="color: rgb(255,75,19);font-size: 20px;"></i></span>
+                                
+                                <input class="form-control" [(ngModel)]="e.email" value="{{e.email}}" id="email1" ngModel name="email1" type="text" style="border-style: none;border-bottom-right-radius: 5px;border-top-right-radius: 5px;" placeholder="Email" disabled></div>
+                        </div>
+
+                        <input style="display: none;" [(ngModel)]="e.email" id="email" ngModel name="email"  >
+                        <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: rgb(255,75,19);">Update</button></div>
+                    </form>
+                </div>
+
+                <!-------footer-->
+                <app-footeradmin></app-footeradmin>
+                <!--------------->
+            </section>
+  
+                
+  
+  
+  
+  
+  
+  
+              </div>
+    
+          </div>
+      </div>
+      
+  
+  

@@ -18,4 +18,11 @@ export class SpreadnewsService {
   login(data: any){
     return this.http.post(this.baseUrl+'/login', data);
   }
+
+  currentUser(id: any){
+    return this.http.get(this.baseUrl+'/currentUser/'+id);
+  }
+  updateprofile(id:any,data: any){
+    return this.http.put(`${this.baseUrl+'/updateprofile'}/${id}`, {data});
+  }
 }

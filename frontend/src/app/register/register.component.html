@@ -1,13 +1,16 @@
+<app-navbar></app-navbar>
 <section class="register-photo" style="margin-top: 50px;background: rgb(255,255,255);">
     <div class="form-container">
-        <div class="image-holder"></div>
+        <div class="image-holder" style="background: url(&quot;assets/img/login.jpg&quot;) center / cover;"></div>
         
         <form  [formGroup]="form" #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" method="post">
                 <h2 class="text-center" style="color: var(--bs-danger);"><strong>Create an</strong>&nbsp;account.</h2>
                 <div class="mb-3">
-                    <div class="input-group"><span class="input-group-text" style="background: var(--bs-danger);"><i class="material-icons" style="color: var(--bs-white);font-size: 20px;">person</i></span>
+                    <div class="input-group">
+                      <span class="input-group-text" style="background: rgb(246,249,252);border-style: none;"><i class="material-icons" style="color: var(--bs-danger);font-size: 20px;">person</i></span>
                       
-                      <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f['firstname'].errors }"     formControlName="firstname" id="firstname" name="firstname" placeholder="Firstname" type="text" type="text"  style="border-top-right-radius: 4px;border-bottom-right-radius: 4px;">
+                      <input class="form-control" type="text" [ngClass]="{ 'is-invalid': submitted && f['firstname'].errors }"     formControlName="firstname" id="firstname" name="firstname" placeholder="Firstname" style="border-top-right-radius: 4px;border-bottom-right-radius: 4px;border-style: none;">
+                  
                        <!-----------vali-->    
       <div *ngIf="submitted && f['firstname'].errors" class="invalid-feedback">
         <div *ngIf="f['firstname'].errors['required']">Firstname is required</div>
@@ -19,10 +22,9 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <div class="input-group"><span class="input-group-text" style="background: var(--bs-danger);"><i class="material-icons" style="color: var(--bs-white);font-size: 20px;">person</i></span>
-                      
-                      <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f['lastname'].errors }"  formControlName="lastname" type="text" id="lastname"  name="lastname" placeholder="Lastname"  type="text"  style="border-top-right-radius: 4px;border-bottom-right-radius: 4px;">
-                    
+                    <div class="input-group"><span class="input-group-text" style="background: rgb(246,249,252);border-style: none;"><i class="material-icons" style="color: var(--bs-danger);font-size: 20px;">person</i></span>
+                      <input class="form-control" type="text" [ngClass]="{ 'is-invalid': submitted && f['lastname'].errors }"  formControlName="lastname" type="text" id="lastname"  name="lastname" placeholder="Lastname" style="border-top-right-radius: 4px;border-bottom-right-radius: 4px;border-style: none;">
+                     
                         <!-----------vali-->    
           
                 <div *ngIf="submitted && f['lastname'].errors" class="invalid-feedback">
@@ -37,9 +39,9 @@
                 
                   </div>
                 <div class="mb-3">
-                    <div class="input-group"><span class="input-group-text" style="background: var(--bs-danger);"><i class="material-icons" style="color: var(--bs-white);font-size: 20px;">email</i></span>
+                    <div class="input-group"><span class="input-group-text" style="background: rgb(246,249,252);border-style: none;"><i class="material-icons" style="color: var(--bs-danger);font-size: 20px;">mail</i></span>
                       
-                      <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email"   type="email" id="email"  name="email" placeholder="Email"  style="border-top-right-radius: 4px;border-bottom-right-radius: 4px;">
+                      <input class="form-control" type="text" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email"   type="email" id="email"  name="email" placeholder="Email" style="border-top-right-radius: 4px;border-bottom-right-radius: 4px;border-style: none;">
                     
     <!-----------vali-->    
           
@@ -53,10 +55,9 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <div class="input-group"><span class="input-group-text" style="background: var(--bs-danger);"><i class="material-icons" style="color: var(--bs-white);font-size: 20px;">lock_outline</i></span>
-                      
-                      <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f['password'].errors } "   formControlName="password"  type="password" id="password"  name="password"  placeholder="Password" style="border-top-right-radius: 4px;border-bottom-right-radius: 4px;">
-                      <!-------validation password-->
+                    <div class="input-group"><span class="input-group-text" style="background: rgb(246,249,252);border-style: none;"><i class="material-icons" style="color: var(--bs-danger);font-size: 20px;">lock</i></span>
+                      <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f['password'].errors } "   formControlName="password"  type="password" id="password"  name="password"  placeholder="Password" style="border-top-right-radius: 4px;border-bottom-right-radius: 4px;border-style: none;">
+                     <!-------validation password-->
           <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
             <div *ngIf="f['password'].errors['required']">Password is required</div>
             <div *ngIf="f['password'].errors['pattern']">
@@ -75,9 +76,9 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <div class="input-group"><span class="input-group-text" style="background: var(--bs-danger);"><i class="material-icons" style="color: var(--bs-white);font-size: 20px;">lock_outline</i></span>
+                    <div class="input-group"><span class="input-group-text" style="background: rgb(246,249,252);border-style: none;"><i class="material-icons" style="color: var(--bs-danger);font-size: 20px;">lock</i></span>
                       
-                      <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"  placeholder="Confirm Password"  formControlName="confirmPassword" type="text" type="password" id="confirmPassword"  name="confirmPassword"  style="border-top-right-radius: 4px;border-bottom-right-radius: 4px;">
+                      <input class="form-control"[ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"  placeholder="Confirm Password"  formControlName="confirmPassword" type="text" type="password" id="confirmPassword"  name="confirmPassword" style="border-top-right-radius: 4px;border-bottom-right-radius: 4px;border-style: none;">
                     
                      <!-------validation password-->
           <div
