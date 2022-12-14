@@ -30,6 +30,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { ArticlebinComponent } from './admin/articlebin/articlebin.component';
 import { AuthorsComponent } from './admin/authors/authors.component';
 import { EditarticleComponent } from './admin/editarticle/editarticle.component';
+import { AdminaddcatComponent } from './admin/adminaddcat/adminaddcat.component';
+import { AdmineditcatComponent } from './admin/admineditcat/admineditcat.component';
+import { CategoriesComponent } from './admin/categories/categories.component';
 
 
 @NgModule({
@@ -54,7 +57,10 @@ import { EditarticleComponent } from './admin/editarticle/editarticle.component'
     MyarticleComponent,
     ArticlebinComponent,
     AuthorsComponent,
-    EditarticleComponent
+    EditarticleComponent,
+    AdminaddcatComponent,
+    AdmineditcatComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,ReactiveFormsModule,NgToastModule,CKEditorModule,CKEditorModule,NgxPaginationModule,

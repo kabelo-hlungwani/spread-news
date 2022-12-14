@@ -52,7 +52,7 @@ constructor(private jwtService:JwtService,private spreadnews:SpreadnewsService,p
 
      let id=localStorage.getItem('article_id');
   
-     this.spreadnews.viewstory(id).subscribe((data)=>{
+     this.spreadnews.categoryId(id).subscribe((data)=>{
       this.story= data;
       console.log(this.story)
    
@@ -64,7 +64,7 @@ constructor(private jwtService:JwtService,private spreadnews:SpreadnewsService,p
 
   let id=localStorage.getItem('article_id');
 
- if(data.content!="" && data.title!="" && data.category!="" && data.img_url!="" ){
+ if( data.title!=""){
 
   this.http.put('http://localhost:3000/updateStory/'+id,data, {responseType:'text'})
   .subscribe((results)=>{

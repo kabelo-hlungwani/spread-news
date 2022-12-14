@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddpostadminComponent } from './admin/addpostadmin/addpostadmin.component';
+import { AdminaddcatComponent } from './admin/adminaddcat/adminaddcat.component';
+import { AdmineditcatComponent } from './admin/admineditcat/admineditcat.component';
 import { ArticlebinComponent } from './admin/articlebin/articlebin.component';
 import { AuthorsComponent } from './admin/authors/authors.component';
+import { CategoriesComponent } from './admin/categories/categories.component';
 import { DashboardadminComponent } from './admin/dashboardadmin/dashboardadmin.component';
 import { EditarticleComponent } from './admin/editarticle/editarticle.component';
 import { MyarticleComponent } from './admin/myarticle/myarticle.component';
@@ -25,7 +28,11 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{ path: 'navb
 { path: 'myarticle', component: MyarticleComponent,canActivate:[AuthService] },
 { path: 'articlebin', component: ArticlebinComponent,canActivate:[AuthService] },
 { path: 'authors', component: AuthorsComponent,canActivate:[AuthService] },
-{ path: 'editarticle', component: EditarticleComponent,canActivate:[AuthService] }
+{ path: 'editarticle', component: EditarticleComponent,canActivate:[AuthService] },
+{ path: 'categories', component: CategoriesComponent,canActivate:[AuthService] },
+{ path: 'adminaddcat', component: AdminaddcatComponent,canActivate:[AuthService] },
+{ path: 'admineditcat', component: AdmineditcatComponent,canActivate:[AuthService] }
+
 
 ];
 

@@ -58,4 +58,9 @@ export class SpreadnewsService {
   restoreStory(id:any){
     return this.http.put(`${this.baseUrl+'/restoreStory'}/${id}`, {});
   }
+  categoryId (id: any){
+    return this.http.get(this.baseUrl+'/categoryId/'+id);
+  }
+  
+
 }

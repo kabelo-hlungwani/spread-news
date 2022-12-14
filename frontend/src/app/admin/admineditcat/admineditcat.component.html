@@ -1,0 +1,58 @@
+
+
+    <div id="wrapper">
+        <!------side menu-------->
+  
+
+  <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: #FF4C13;">
+     <app-sidemenuadmin></app-sidemenuadmin>
+   
+</nav>
+  
+        <!---------------------->
+          <div class="d-flex flex-column" id="content-wrapper">
+              <div id="content">
+              <!---------top nav-->
+
+                <!---------top nav-->
+                <app-topnav></app-topnav>
+                <!------------------>
+
+              <section class="register-photo" style="background: rgb(255,255,255);" *ngFor="let e of story;">
+                <div class="shadow-none form-container">
+                    <form    #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)"  method="post">
+                        <h2 class="text-center">Edit Category</h2>
+                        <div class="mb-3">
+                            <div class="input-group"><span class="input-group-text" style="border-style: none;background: rgb(246,249,252);border-top-left-radius: 5px;border-top-right-radius: 5px;"><i class="fa fa-newspaper-o" style="color: rgb(255,75,19);font-size: 20px;"></i></span>
+                                
+                                <input class="form-control" type="text"  [(ngModel)]="e.name" ngModel name="title" style="border-style: none;border-bottom-right-radius: 5px;border-top-right-radius: 5px;" placeholder="Title"></div>
+                        </div>
+                   
+                        <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit"  style="background: rgb(255,75,19);">Submit</button></div>
+                    </form>
+                </div>
+           
+
+                <!-------footer-->
+                <app-footeradmin></app-footeradmin>
+                <!--------------->
+           </section>
+  
+                
+  
+  
+      
+  
+  
+  
+              </div>
+    
+          </div>
+      </div>
+      
+  
+  
+
+
+
+

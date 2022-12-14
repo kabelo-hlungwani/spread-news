@@ -419,10 +419,92 @@ const restoreStory = (req, res) => {
   
   }}
   //================================================================================================
+  //add article 
+
+const addCategory = (req, res) => {
+
+  const {title} = req.body; 
+  if(title){
+  
+  var values={
+  
+
+  "name":title,
+
+  }
+  
+  
+  con.query('INSERT INTO category SET ?',[values], function (error, results, fields) 
+  {
+  if(error){
+  res.send('data not sent')
+  
+  }else{
+  res.send('category added successfully.')
+  }
+  
+  })
+  
+  
+  
+  }}
+  //===================================================================================================================================================
+  //===================================================================================================================================================
+//get user by id
+const categoryId = (req, res) => {
+
+
+  {
+  const id=parseInt(req.params.id)
+  
+  con.query('select * from category where category_id= ?',[id], function (error, results, fields) 
+  {
+  if(error){
+  res.send('data not found')
+  
+  }else{
+  res.send(results)
+  }
+  
+  })
+  
+  
+  
+  }}
+
+//============================================================================
+
+
+//update story
+const updateCat= (req, res) => {
+
+
+  const id=parseInt(req.params.id)
+  const {title} = req.body; 
+  var story={
+
+    "name":title,
+
+ 
+}
+if(title){
+ con.query('UPDATE category SET ? WHERE category_id= ?',[story,id], function (error, results, fields) 
+  {
+       if(error){
+        res.send('data not sent')
+
+       }else{
+        res.send(' Category Updated succesfully!')
+       }
+
+  })
+}}
+//============================================================================
 module.exports = {
  
   createUser,
-  login,addArticle,updateprofile,currentUser,adminstories,deladminstories,authors,countauthor,countarticle,category,viewstory,updateStory,archiveBooking,restoreStory
+  login,addArticle,updateprofile,currentUser,adminstories,deladminstories,authors,countauthor,countarticle,category,viewstory,updateStory,archiveBooking,restoreStory,addCategory,
+  categoryId,updateCat
 
 
   

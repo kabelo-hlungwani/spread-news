@@ -38,10 +38,15 @@ const server = app.listen(PORT, () => {
 app.post('/register',db.createUser)
 app.post('/login',db.login)
 app.post('/addArticle/',db.addArticle)
-app.get('/currentUser/:id',db.currentUser)
-app.put('/updateprofile/:id',db.updateprofile)
-app.put('/updateStory/:id',db.updateStory)
+app.post('/addCategory/',db.addCategory)
 
+
+app.get('/currentUser/:id',db.currentUser)
+app.get('/categoryId/:id',db.categoryId)
+
+app.put('/updateprofile/:id',db.updateprofile)
+app.put('/updateCat/:id',db.updateCat)
+ app.put('/updateStory/:id',db.updateStory)
 app.put('/restoreStory/:id',db.restoreStory)
 app.put('/archiveBooking/:id',db.archiveBooking)
 
