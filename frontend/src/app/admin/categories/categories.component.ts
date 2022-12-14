@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { JwtService } from 'src/app/service/jwt.service';
 import { SpreadnewsService } from 'src/app/service/spreadnews.service';
 
@@ -10,7 +11,7 @@ import { SpreadnewsService } from 'src/app/service/spreadnews.service';
 })
 export class CategoriesComponent implements OnInit {
 
-  constructor(private route: Router,private spreadnews:SpreadnewsService,private jwtService : JwtService,private router:Router) { }
+  constructor(private route: Router,private spreadnews:SpreadnewsService,private jwtService : JwtService,private router:Router,private toast : NgToastService) { }
  
   info:any;
   inf=[];
@@ -51,16 +52,19 @@ export class CategoriesComponent implements OnInit {
   
     }
 
-    remove(items:any)
-    {
-  
- 
-     this.router.navigate(['/admineditcat']);
-     localStorage.setItem('category_id',items.category_id);
-  
-  
-  
-    }
+    delete(items:any){
+
+      var id=items.category_id;
+      
+        this.spreadnews.removecat(id).subscribe(data => console.log(data))
+         
+        this.toast.success({detail:"Success",summary:'category was successfully deleted.', duration:2000})
+        setTimeout(()=> this.router.navigate(['/categories']),1600)
+
+        setTimeout(()=>  window.location.reload(),1700)
+       
+       
+        }
 
 }
 

@@ -39,6 +39,11 @@ export class SpreadnewsService {
   authors(){
     return this.http.get(this.baseUrl+'/authors');
   }
+
+  allArticles(){
+    return this.http.get(this.baseUrl+'/allArticles');
+  }
+
   countauthor(){
     return this.http.get(this.baseUrl+'/countauthor');
   }
@@ -61,6 +66,17 @@ export class SpreadnewsService {
   categoryId (id: any){
     return this.http.get(this.baseUrl+'/categoryId/'+id);
   }
+  articlebtId (id: any){
+    return this.http.get(this.baseUrl+'/articlebtId/'+id);
+  }
+  removecat (id: any){
+    return this.http.delete(this.baseUrl+'/removecat/'+id);
+  }
+  activate (id:any){
+    return this.http.put(`${this.baseUrl+'/activate'}/${id}`, {});
+  }
+  suspend (id:any){
+    return this.http.put(`${this.baseUrl+'/suspend'}/${id}`, {});
+  }
   
-
 }

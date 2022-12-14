@@ -1,0 +1,15 @@
+<div class="row" style="border-bottom: 1px solid var(--bs-danger) ;">
+
+    <div class="col-sm-6 col-md-4 col-lg-4 mb-4" *ngFor="let item of info">
+        <div class="card h-100"><a (click)=read(item)><img class="img-fluid" src="{{item.img_url}}" /></a>
+            <div class="card-body">
+                <h1 class="display-5 card-title" style="font-size: 16px;color: rgb(231,74,58);font-weight: bold;line-height: 16.2px;text-decoration:  underline;">{{item.title}}</h1>
+                <h6 class="text-muted card-subtitle mb-2" style="font-size: 12px;"><i class="fa fa-user-circle-o"></i>{{item.firstname}} {{item.lastname}}</h6>
+                <h6 class="text-muted card-subtitle mb-2" style="font-size: 12px;"><i class="fa fa-calendar-o"></i> {{item.date | date: 'dd/MM/yyyy'}}</h6>
+                <h6 class="text-muted card-subtitle mb-2" style="font-size: 12px;"><i class="fa fa-clock"></i> {{item.date | date: 'hh:m'}}</h6>
+            </div>
+        </div>
+    </div>
+   
+
+</div>

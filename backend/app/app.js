@@ -40,9 +40,12 @@ app.post('/login',db.login)
 app.post('/addArticle/',db.addArticle)
 app.post('/addCategory/',db.addCategory)
 
+app.get('/allArticles',db.allArticles)
 
 app.get('/currentUser/:id',db.currentUser)
 app.get('/categoryId/:id',db.categoryId)
+
+
 
 app.put('/updateprofile/:id',db.updateprofile)
 app.put('/updateCat/:id',db.updateCat)
@@ -50,8 +53,8 @@ app.put('/updateCat/:id',db.updateCat)
 app.put('/restoreStory/:id',db.restoreStory)
 app.put('/archiveBooking/:id',db.archiveBooking)
 
-
-
+app.put('/activate/:id',db.activate)
+app.put('/suspend/:id',db.suspend)
 
 app.get('/adminstories/:id',db.adminstories)
 app.get('/deladminstories/:id',db.deladminstories)
@@ -60,6 +63,8 @@ app.get('/category',db.category)
 app.get('/countauthor',db.countauthor)
 app.get('/countarticle',db.countarticle)
 app.get('/viewstory/:id',db.viewstory)
+
+app.delete('/removecat/:id',db.removecat)
 
 
 

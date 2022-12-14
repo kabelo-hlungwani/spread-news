@@ -500,11 +500,109 @@ if(title){
   })
 }}
 //============================================================================
+//delete room
+
+const removecat = (req, res) => {
+
+
+  {
+  const id=parseInt(req.params.id)
+  
+  con.query('DELETE from category where category_id= ?',[id], function (error, results, fields) 
+  {
+  if(error){
+  res.send('not deleted')
+  
+  }else{
+  res.send(results)
+  }
+  
+  })
+  
+  
+  
+  }}
+  //============================================================================
+//============================================================================
+//activate account
+const activate = (req, res) => {
+
+
+  {
+  
+  
+  const id=parseInt(req.params.id)
+  
+  
+  con.query('Update user SET acc_status=0 where user_id =?',[id], function (error, results, fields) 
+  {
+  if(error){
+  res.send('account is active.')
+  
+  }else{
+  res.send(results)
+  }
+  
+  })
+  
+  
+  
+  }}
+  //============================================================================
+//activate account
+const suspend = (req, res) => {
+
+
+  {
+  
+  
+  const id=parseInt(req.params.id)
+  
+  
+  con.query('Update user SET acc_status=1 where user_id =?',[id], function (error, results, fields) 
+  {
+  if(error){
+  res.send('account is suspended.')
+  
+  }else{
+  res.send(results)
+  }
+  
+  })
+  
+  
+  
+  }}
+  //============================================================================
+  //============================================================================
+//all users
+const allArticles = (req, res) => {
+
+
+  {
+
+  
+  con.query('select * from article,user where user.user_id=article.user_id',[], function (error, results, fields) 
+  {
+  if(error){
+  res.send('data not found')
+  
+  }else{
+  res.send(results)
+  }
+  
+  })
+  
+  
+  
+  }}
+
+//============================================================================
 module.exports = {
  
   createUser,
   login,addArticle,updateprofile,currentUser,adminstories,deladminstories,authors,countauthor,countarticle,category,viewstory,updateStory,archiveBooking,restoreStory,addCategory,
-  categoryId,updateCat
+  categoryId,updateCat,removecat,activate,suspend,allArticles
 
 
   

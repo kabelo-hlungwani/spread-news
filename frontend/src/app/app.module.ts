@@ -33,6 +33,11 @@ import { EditarticleComponent } from './admin/editarticle/editarticle.component'
 import { AdminaddcatComponent } from './admin/adminaddcat/adminaddcat.component';
 import { AdmineditcatComponent } from './admin/admineditcat/admineditcat.component';
 import { CategoriesComponent } from './admin/categories/categories.component';
+import { BusinessComponent } from './stories/business/business.component';
+import { PoliticsComponent } from './stories/politics/politics.component';
+import { GovernmentComponent } from './stories/government/government.component';
+import { NewsComponent } from './stories/news/news.component';
+import { ReadstoryComponent } from './stories/readstory/readstory.component';
 
 
 @NgModule({
@@ -60,7 +65,12 @@ import { CategoriesComponent } from './admin/categories/categories.component';
     EditarticleComponent,
     AdminaddcatComponent,
     AdmineditcatComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    BusinessComponent,
+    PoliticsComponent,
+    GovernmentComponent,
+    NewsComponent,
+    ReadstoryComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,ReactiveFormsModule,NgToastModule,CKEditorModule,CKEditorModule,NgxPaginationModule,

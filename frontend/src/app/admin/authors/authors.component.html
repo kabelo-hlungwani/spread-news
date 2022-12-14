@@ -55,7 +55,9 @@
                                     <span *ngIf="item.acc_status == 1" class="text-danger" style="font-size: 11px;background: #e3e3e3;border-radius: 15px;">&nbsp;<i class="fa fa-circle"></i>Suspended&nbsp;&nbsp;</span>
                                 </td>
                                 <td>
-                                    <div class="btn-group btn-group-sm shadow" role="group"><button class="btn btn-success" type="button" style="color: rgb(255,255,255);font-size: 12px;">Active</button><button class="btn btn-danger btn-sm" type="button" style="font-size: 12px;">Suspend</button></div>
+                                    <div class="btn-group btn-group-sm shadow" role="group">
+                                        <button *ngIf="item.acc_status == 1" class="btn btn-success" type="button" style="color: rgb(255,255,255);font-size: 12px;" (click)=activate(item)>Active</button>
+                                        <button *ngIf="item.acc_status == 0"class="btn btn-danger btn-sm" type="button" style="font-size: 12px;" (click)=suspend(item)>Suspend</button></div>
                                 </td>
                             </tr>
                          

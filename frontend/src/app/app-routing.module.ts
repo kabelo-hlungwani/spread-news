@@ -19,8 +19,11 @@ import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './service/auth.service';
+import { BusinessComponent } from './stories/business/business.component';
+import { NewsComponent } from './stories/news/news.component';
+import { ReadstoryComponent } from './stories/readstory/readstory.component';
 
-const routes: Routes = [{ path: '', component: HomepageComponent },{ path: 'navbar', component: NavbarComponent },
+const routes: Routes = [{ path: '', component: HomepageComponent },{ path: 'navbar', component: NavbarComponent },{ path: 'business', component: BusinessComponent },
 {path: 'register', component:RegisterComponent},{path: 'login', component:LoginComponent},
 { path: 'dashboardadmin', component: DashboardadminComponent,canActivate:[AuthService] },
 { path: 'profileadmin', component: ProfileadminComponent,canActivate:[AuthService] },
@@ -31,7 +34,8 @@ const routes: Routes = [{ path: '', component: HomepageComponent },{ path: 'navb
 { path: 'editarticle', component: EditarticleComponent,canActivate:[AuthService] },
 { path: 'categories', component: CategoriesComponent,canActivate:[AuthService] },
 { path: 'adminaddcat', component: AdminaddcatComponent,canActivate:[AuthService] },
-{ path: 'admineditcat', component: AdmineditcatComponent,canActivate:[AuthService] }
+{ path: 'admineditcat', component: AdmineditcatComponent,canActivate:[AuthService] },
+{ path: 'news', component: NewsComponent },{ path: 'readstory', component: ReadstoryComponent }
 
 
 ];

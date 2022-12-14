@@ -38,6 +38,9 @@ constructor(private jwtService:JwtService,private spreadnews:SpreadnewsService,p
 
   ngOnInit(): void {
 
+
+
+    
     this.spreadnews.category().subscribe(res=>{
  
  
@@ -52,9 +55,9 @@ constructor(private jwtService:JwtService,private spreadnews:SpreadnewsService,p
 
      let id=localStorage.getItem('article_id');
   
-     this.spreadnews.categoryId(id).subscribe((data)=>{
+     this.spreadnews.viewstory(id).subscribe((data)=>{
       this.story= data;
-      console.log(this.story)
+     
    
       })
   }

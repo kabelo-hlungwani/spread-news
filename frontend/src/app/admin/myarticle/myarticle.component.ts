@@ -62,19 +62,19 @@ export class MyarticleComponent implements OnInit {
 
 
     this.toast.success({detail:"Success",summary:'Article removed successfully', duration:2000})
-    setTimeout(()=> this.router.navigate(['/articlebin']),1600)
+    setTimeout(()=> this.router.navigate(['/myarticle']),1600)
+    setTimeout(()=>  window.location.reload(),1700)
 
-
-    this.spreadnews.adminstories(this.info).subscribe(res=>{
+    // this.spreadnews.adminstories(this.info).subscribe(res=>{
  
  
-      this.info=res;
-      this.inf=this.info.data;
-      console.log(this.info);
+    //   this.info=res;
+    //   this.inf=this.info.data;
+    //   console.log(this.info);
      
       
  
-     })
+    //  })
 
      
 

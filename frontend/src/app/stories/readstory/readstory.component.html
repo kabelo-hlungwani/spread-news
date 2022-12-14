@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<br>
+<div class="container" *ngFor="let item of info">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="intro">
+                <h1 class="text-center">{{item.title}}</h1>
+                <p class="text-center"><span class="by">by</span><a href="#">Author Name</a><span class="date">Sept 8th, 2016 </span></p><img class="img-fluid" src="{{item.img_url}}" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-lg-10 offset-md-1 offset-lg-1">
+            <div class="text">
+        <p>{{item.content}}</p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
